@@ -12,9 +12,15 @@ import { FaceSnap } from './face-snap/model/face-snap';
 })
 export class AppComponent implements OnInit {
   title = 'snapFace';
-  mySnap!:FaceSnap;
+  faceSnaps:FaceSnap[]=[];
+ ;
 
   ngOnInit():void{
-    this.mySnap=new FaceSnap("Dragonball Z","The best anime ever",new Date(),0,"https://i.pinimg.com/564x/00/1d/26/001d26c2688e8adadec15487cbf79ad0.jpg","snap");
+    this.faceSnaps=[
+    new FaceSnap("Dragonball Z","The best anime ever",new Date(),0,"https://i.pinimg.com/564x/00/1d/26/001d26c2688e8adadec15487cbf79ad0.jpg","snap"),
+   new FaceSnap("Naruto","The best anime ever",new Date(),0,"https://i.pinimg.com/564x/00/1d/26/001d26c2688e8adadec15487cbf79ad0.jpg","snap")
+    ];
+    this.faceSnaps[1].setLocation("Nigeria");
   }
-}
+  }
+

@@ -1,4 +1,5 @@
 export class FaceSnap{
+    location?:string;
    constructor(public title:string,
                 public description:string,
                 public createdAt:Date,
@@ -17,4 +18,9 @@ export class FaceSnap{
       this.message="snap";
 }
   }
+
+  setLocation(location:string):void{
+    this.location=location;
+
+}
 }
