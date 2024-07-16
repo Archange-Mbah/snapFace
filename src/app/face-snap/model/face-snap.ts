@@ -4,8 +4,8 @@ export class FaceSnap{
                 public createdAt:Date,
                 public snaps:number,
                 public imageUrl:string,
-                public message:string
+                public messages:string
    ){
-    
+
    }
 }
