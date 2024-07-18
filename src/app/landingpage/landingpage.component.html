@@ -1,0 +1,15 @@
+@if(isLoading){
+<div class=container>
+    <h1>Landing page Loading...</h1>
+  <div id="loader" class="loader"></div>
+  <div id="content" class="content">    
+  </div>
+</div>
+}
+@else{
+  <div class="container2" >
+ <p> Welcome to my Landing page</p>
+ <img [src]="imageUrl">
+ <button ><a routerLink="facesnaps"> lets's go snapping</a></button>
+</div>
+}

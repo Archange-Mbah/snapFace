@@ -1,5 +1,8 @@
+import { SnapType } from "../snap-type.type";
+
 export class FaceSnap{
     location?:string;
+    id:string;
 
    constructor(public title:string,
                 public description:string,
@@ -7,25 +10,29 @@ export class FaceSnap{
                 public snaps:number,
                 public imageUrl:string,
                 public message:string,
-                public userHasClicked:boolean
-
-   ){
+                public userHasClicked:boolean){
+    this.id=crypto.randomUUID().substring(0,7);
 
    }
-   Onsnap():void{
-    this.snaps=(this.snaps+1)%5;
-    if(this.snaps>0){
-      this.message="oops unSnap";
-      this.userHasClicked=true;
+
+   snap(snapType:SnapType):void{
+    if(snapType==='snap'){
+        this.addSnap();
     }
-    else{
-      this.message="snap";
-      this.userHasClicked=false;
-}
+    else if(snapType==='unsnap'){
+        this.removeSnap();
+    
   }
 
+}
   setLocation(location:string):void{
     this.location=location;
 
+}
+addSnap():void{
+  this.snaps++;
+}
+removeSnap():void{
+  this.snaps--; 
 }
 }

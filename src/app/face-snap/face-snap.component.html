@@ -7,8 +7,8 @@
     <p>{{ faceSnap.description }}</p>
     <p>FaceSnap créée le {{ faceSnap.createdAt }}</p>
     
-   <div class="face-snap-card" [ngClass]="{ snapped: faceSnap.userHasClicked }">
-    <button (click)="faceSnap.Onsnap()">oh Snap</button>
+   <div class="face-snap-card" [ngClass]="{ snapped: userHasSnapped }">
+    <button (click)="OnSnap()">oh Snap</button>
     <p>oh Snap {{ faceSnap.snaps }}</p>
    </div>
  
