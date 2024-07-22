@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 
 @Component({
   selector: 'app-landingpage',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './landingpage.component.html',
   styleUrl: './landingpage.component.scss'
 })
@@ -14,11 +14,16 @@ isLoading:boolean=true;
 imageUrl="https://i.pinimg.com/564x/00/1d/26/001d26c2688e8adadec15487cbf79ad0.jpg"
 
 
+constructor(private router:Router){}
   ngOnInit(): void {
     // Simulate a delay to show the loader (e.g., waiting for content to load)
     setTimeout(() => {
       this.isLoading = false;
     }, 4000); // Adjust the delay as needed
+  }
+ 
+  goFaceSnap(){
+    this.router.navigateByUrl('facesnaps');
   }
 }
 

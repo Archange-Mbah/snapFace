@@ -2,6 +2,7 @@ import { Component,Input } from '@angular/core';
 import { FaceSnap } from './model/face-snap';
 import { NgStyle, NgClass,UpperCasePipe, TitleCasePipe, LowerCasePipe } from '@angular/common';
 import { FaceSnapsService } from '../services/face-snaps.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,25 +19,13 @@ import { FaceSnapsService } from '../services/face-snaps.service';
 export class FaceSnapComponent {
   @Input() faceSnap!:FaceSnap;
   userHasSnapped:boolean=false;
-  constructor(private faceSnapsService: FaceSnapsService){}
-
-  snap(){
-    this.faceSnapsService.snapFaceSnapByid(this.faceSnap.id,'snap');
-    this.userHasSnapped=true;
+  constructor(private router: Router){
+    
   }
-  unsnap(){
-    this.faceSnapsService.snapFaceSnapByid(this.faceSnap.id,'unsnap');
-    this.userHasSnapped=false;
+ onView(){
+    this.router.navigateByUrl('facesnaps/'+this.faceSnap.id);
+    console.log(this.faceSnap.id);
   }
-
-  OnSnap(){
-    if(this.userHasSnapped){
-      this.unsnap();
-    }
-    else{
-      this.snap();
-    }
-
-  }
+ 
     
 }
